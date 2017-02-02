@@ -13,13 +13,22 @@
     constructor(...args) {
       super(...args);
       this.state = {
-        text: 'World'
+        text: 'World',
+        isClicked: false
       };
     }
 
     handleClick() {
+      var d = new Date();
+      var year,month,day;
+      year = d.getFullYear(); // 当前年份
+      month = d.getMonth() + 1 // 当前月份
+      day = d.getDate() // 当前是每个月的几号
+      var str = '' + year + ' ' + month + ' ' + day;
+      let isClicked = !this.state.isClicked;
       this.setState({
-        text: 'Clicked'
+        isClicked: isClicked,
+        text: isClicked ? str : 'World'
       });
     }
 
